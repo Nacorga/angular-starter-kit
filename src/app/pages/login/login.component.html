@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5 col-xl-4">
+      <mat-card class="shadow-z2 p-3">
+        <mat-card-content>
+          <h5 class="mb-4">{{ 'login' | translate }}</h5>
+          <form [formGroup]="loginForm">
+            <mat-form-field class="w-100 mb-3">
+              <mat-label>{{ 'email' | translate }}</mat-label>
+              <input type="text" matInput formControlName="email" />
+            </mat-form-field>
+
+            <div class="mb-5">
+              <mat-form-field class="w-100">
+                <mat-label>{{ 'password' | translate }}</mat-label>
+                <input matInput [type]="passwordInputType()" formControlName="password" />
+                <mat-icon
+                  class="material-symbols-outlined cursor-pointer"
+                  matSuffix
+                  (click)="togglePasswordInputType()"
+                  >{{ passwordInputType() === 'password' ? 'visibility' : 'visibility_off' }}</mat-icon
+                >
+              </mat-form-field>
+
+              <div class="d-flex justify-content-end">
+                <small class="cursor-pointer underline-hover">{{ 'forgot_password' | translate }} </small>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="h-lg w-100 mb-4"
+              type="submit"
+              mat-flat-button
+              color="primary"
+              (click)="submitForm()">
+              {{ 'login' | translate }}
+            </button>
+
+            <div class="d-flex justify-content-center mb-4">
+              <app-gsi-button [btnId]="'login'" (tokenChange)="gsiTokenChangeHandler($event)"></app-gsi-button>
+            </div>
+
+            <p class="text-center">
+              {{ 'not_account_question' | translate }}&nbsp;&nbsp;<a
+                class="color-primary cursor-pointer underline-hover fw500"
+                (click)="navigate(true, ['auth', 'register'])"
+                >{{ 'sign_up_here' | translate }}</a
+              >
+            </p>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

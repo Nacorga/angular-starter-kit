@@ -1,0 +1,10 @@
+@use 'src/theme/variables.scss' as vars;
+
+:host {
+  overflow: hidden;
+  height: 100dvh;
+  display: grid;
+  align-items: center;
+  background: vars.$primary;
+  background: linear-gradient(135deg, #000 0%, vars.$primary 100%);
+}

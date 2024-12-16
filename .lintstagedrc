@@ -1,0 +1,8 @@
+{
+  "src/**/*.ts": [
+    "eslint --fix"
+  ],
+  "src/{app,environments,theme}/**/*{.ts,.html,.scss}": [
+    "npm run format"
+  ]
+}

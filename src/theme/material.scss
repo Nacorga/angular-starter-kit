@@ -1,0 +1,171 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+// Note: Color palettes are generated from primary: #14213d, secondary: #fca311
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #0d1b36,
+    20: #23304d,
+    25: #2e3b58,
+    30: #3a4664,
+    35: #465271,
+    40: #525e7d,
+    50: #6a7797,
+    60: #8490b2,
+    70: #9eabce,
+    80: #b9c6ea,
+    90: #d9e2ff,
+    95: #edf0ff,
+    98: #faf8ff,
+    99: #fefbff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #2a1700,
+    20: #472a00,
+    25: #563400,
+    30: #653e00,
+    35: #754900,
+    40: #855300,
+    50: #a76a00,
+    60: #ca8100,
+    70: #ee9800,
+    80: #ffb95f,
+    90: #ffddb8,
+    95: #ffeede,
+    98: #fff8f4,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #29132d,
+    20: #402843,
+    25: #4c334e,
+    30: #583e5a,
+    35: #644966,
+    40: #715573,
+    50: #8b6d8c,
+    60: #a687a7,
+    70: #c2a1c2,
+    80: #debcde,
+    90: #fcd7fb,
+    95: #ffebfc,
+    98: #fff7fa,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    10: #1b1b1e,
+    20: #303033,
+    25: #3b3b3e,
+    30: #474649,
+    35: #525255,
+    40: #5e5e61,
+    50: #777779,
+    60: #919093,
+    70: #acabad,
+    80: #c8c6c9,
+    90: #e4e2e5,
+    95: #f2f0f3,
+    98: #fbf8fb,
+    99: #fefbfe,
+    100: #ffffff,
+    4: #0e0e10,
+    6: #131315,
+    12: #1f1f22,
+    17: #2a2a2c,
+    22: #343437,
+    24: #39393b,
+    87: #dbd9dc,
+    92: #eae7ea,
+    94: #f0edf0,
+    96: #f5f3f6,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #191b21,
+    20: #2e3037,
+    25: #393b42,
+    30: #45464d,
+    35: #505259,
+    40: #5d5e65,
+    50: #75777e,
+    60: #8f9098,
+    70: #aaabb3,
+    80: #c5c6ce,
+    90: #e2e2ea,
+    95: #f0f0f9,
+    98: #faf8ff,
+    99: #fefbff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes,  neutral-variant),
+  error: map.get($_palettes, error),
+);
+
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: $_primary,
+      tertiary: $_tertiary,
+    ),
+    typography: (
+      brand-family: Poppins,
+      plain-family: Open Sans,
+      bold-weight: 600,
+      medium-weight: 500,
+      regular-weight: 400,
+    ),
+  )
+);
+
+@include mat.core();
+
+:root {
+  @include mat.all-component-themes($theme);
+
+  @include mat.card-overrides((
+    elevated-container-color: #fff,
+    outlined-container-color: #fff,
+  ));
+
+  @include mat.expansion-overrides((
+    container-background-color: #fff,
+    header-collapsed-state-height: auto
+  ));
+
+  @include mat.menu-overrides((
+    container-color: #fff,
+  ));
+}

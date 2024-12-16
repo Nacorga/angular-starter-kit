@@ -1,0 +1,22 @@
+@use '../variables.scss' as vars;
+
+mat-snack-bar-container.mdc-snackbar.ds-alert-snackbar {
+  color: #fff;
+
+  simple-snack-bar .mdc-snackbar__label {
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  &.error .mdc-snackbar__surface {
+    background-color: vars.$error;
+  }
+
+  &.success .mdc-snackbar__surface {
+    background-color: vars.$success;
+  }
+
+  &.info .mdc-snackbar__surface {
+    background-color: vars.$info;
+  }
+}

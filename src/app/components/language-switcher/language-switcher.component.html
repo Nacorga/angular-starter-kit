@@ -1,0 +1,14 @@
+<div class="language-switcher">
+  <div class="d-flex align-items-center cursor-pointer" [matMenuTriggerFor]="menu">
+    <mat-icon class="me-2">language</mat-icon>
+    <span class="fw600">{{ state.currentLang() | uppercase }}</span>
+  </div>
+
+  <mat-menu #menu="matMenu">
+    @for (lang of languages; track 'lang-' + $index) {
+      <button mat-menu-item (click)="langSelectionChangeHandler(lang.key)">
+        <span>{{ lang.label | translate }}</span>
+      </button>
+    }
+  </mat-menu>
+</div>

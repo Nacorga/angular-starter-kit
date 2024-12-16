@@ -1,0 +1,18 @@
+export const FORM_FIELD_ERROR_MSG = {
+  required: 'form_error.required',
+  email: 'form_error.email',
+  minlength: 'form_error.minlength',
+  maxlength: 'form_error.maxlength',
+  min: 'form_error.min',
+  max: 'form_error.max',
+  invalidValue: 'form_error.invalid_value',
+  pattern: 'form_error.invalid_pattern',
+  hasCapitalCase: 'form_error.has_capital_case',
+  hasNumber: 'form_error.has_number',
+  hasSpecialCharacters: 'form_error.has_special_characters',
+  hasSmallCase: 'form_error.has_small_case',
+  invalidUsername: 'form_error.invalid_username',
+  listNotMatch: 'form_error.list_not_match',
+  matStartDateInvalid: 'form_error.invalid_start_date',
+  matEndDateInvalid: 'form_error.invalid_end_date',
+};

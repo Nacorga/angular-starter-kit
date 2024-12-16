@@ -1,0 +1,1 @@
+declare let google: typeof import('google-one-tap'); 

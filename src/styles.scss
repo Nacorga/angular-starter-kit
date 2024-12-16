@@ -1,0 +1,18 @@
+@use 'bootstrap/scss/bootstrap' as bootstrap;
+@use "./theme/material" as material;
+@use './theme/ds.scss' as ds;
+@use './theme/typography.scss' as typography;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
