@@ -81,7 +81,7 @@ export class RegisterPageComponent extends BaseComponent implements OnInit {
 
   private afterRegister(data: Auth) {
     this.authSrv.signDataHandler(data);
-    this.navigate(false, ['dashboard']);
+    this.navigate(true, ['dashboard']);
   }
 
   private buildForm(): AuthForm {

@@ -74,7 +74,7 @@ export class LoginPageComponent extends BaseComponent implements OnInit {
 
   private afterLogin(data: Auth) {
     this.authSrv.signDataHandler(data);
-    this.navigate(false, ['dashboard']);
+    this.navigate(true, ['dashboard']);
   }
 
   private handleError(err: HttpErrorResponse, isSocial?: boolean) {

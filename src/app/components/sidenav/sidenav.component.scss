@@ -1,0 +1,35 @@
+@use 'src/theme/variables.scss' as vars;
+
+mat-sidenav-content {
+  .sidenav-content {
+    &__header {
+      background-color: #fff;
+      box-shadow: vars.$shadow-z2;
+    }
+
+    &__header,
+    &__container {
+      padding: 0.75rem;
+
+      @media (min-width: vars.$tablet) {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+.sidenav__grid {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  &-header,
+  &-footer {
+    padding: 0.75rem;
+
+    @media (min-width: vars.$tablet) {
+      padding: 1rem;
+    }
+  }
+}

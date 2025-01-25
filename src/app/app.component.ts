@@ -6,10 +6,11 @@ import { LayoutService } from './services/layout/layout.service';
 import { DomService } from './services/dom/dom.service';
 import { GtagService } from './services/gtag/gtag.service';
 import { filter } from 'rxjs';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatProgressBarModule],
+  imports: [RouterOutlet, MatProgressBarModule, SidenavComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

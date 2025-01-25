@@ -1,0 +1,83 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #sidenavRef
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="isSmallScreen() ? 'dialog' : 'navigation'"
+    [mode]="isSmallScreen() ? 'over' : 'side'"
+    [opened]="!isSmallScreen()"
+    [autoFocus]="false">
+    <div class="sidenav__grid">
+      <div class="sidenav__grid-header">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-auto">
+            <div class="d-flex align-items-center">
+              <img src="img/branding/logo.svg" height="28px" />
+              <img class="ms-2" src="img/branding/logo_text.svg" height="14px" />
+            </div>
+          </div>
+
+          @if (isSmallScreen()) {
+            <div class="col-auto">
+              <button mat-icon-button (click)="sidenavRef.close()">
+                <mat-icon class="material-symbols-outlined d-flex">clear</mat-icon>
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="sidenav__grid-body">
+        <mat-nav-list>
+          @for (item of navigation; track item.key) {
+            <a mat-list-item (click)="navToPath(item.path)">
+              <mat-icon class="material-symbols-outlined me-2">{{ item.icon }}</mat-icon>
+              <span>{{ item.label | translate }}</span>
+            </a>
+          }
+        </mat-nav-list>
+      </div>
+
+      <div class="sidenav__grid-footer">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-auto">
+            <div class="d-flex align-items-center">
+              <app-avatar
+                [dimensions]="42"
+                [img]="state.user()?.img"
+                class="cursor-pointer"
+                (click)="navToPath(['profile'])"></app-avatar>
+              <small class="d-block cursor-pointer ms-3" (click)="navToPath(['profile'])">{{
+                state.user()?.name
+              }}</small>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <button mat-icon-button (click)="navToPath(['settings'])">
+              <mat-icon class="material-symbols-outlined d-flex">settings</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    @if (isSmallScreen()) {
+      <div class="sidenav-content__header">
+        <div class="d-flex align-items-center">
+          <button mat-icon-button (click)="sidenavRef.toggle()">
+            <mat-icon class="material-symbols-outlined d-flex">menu</mat-icon>
+          </button>
+
+          <img class="ms-2" src="img/branding/logo_text.svg" height="14px" />
+        </div>
+      </div>
+    }
+
+    <div class="sidenav-content__container">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

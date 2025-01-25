@@ -8,7 +8,7 @@ const buildServerRoute = (path: string, renderMode: RenderMode): ServerRoute =>
   }) as ServerRoute;
 
 const langServerRoutes: ServerRoute[] = LANGS_LIST.map((lang) => [
-  buildServerRoute(lang, RenderMode.Prerender),
+  buildServerRoute(`${lang}`, RenderMode.Server),
   buildServerRoute(`${lang}/auth/login`, RenderMode.Prerender),
   buildServerRoute(`${lang}/auth/register`, RenderMode.Prerender),
 ]).flat();

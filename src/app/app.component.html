@@ -2,4 +2,10 @@
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 }
 
-<router-outlet></router-outlet>
+@if (state.user()) {
+  <app-sidenav>
+    <router-outlet></router-outlet>
+  </app-sidenav>
+} @else {
+  <router-outlet></router-outlet>
+}

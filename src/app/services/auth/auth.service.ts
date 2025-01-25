@@ -5,8 +5,8 @@ import { StorageService } from '../storage/storage.service';
 import { StateService } from '../state/state.service';
 import { AuthApiService } from '@app/api/auth/auth.service';
 import { Cookie } from '@app/constants/cookie.constants';
-import { User } from '@app/models/user.model';
 import { Auth } from '@app/interfaces/auth.interface';
+import { User } from '@app/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',

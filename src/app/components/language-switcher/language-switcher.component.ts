@@ -19,5 +19,6 @@ export class LanguageSwitcherComponent extends BaseComponent {
 
   langSelectionChangeHandler(lang: Lang) {
     this.langSrv.changeLang(lang);
+    this.stateSrv.update('currentLang', lang);
   }
 }

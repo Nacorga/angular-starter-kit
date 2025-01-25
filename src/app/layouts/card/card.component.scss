@@ -1,0 +1,27 @@
+@use 'src/theme/variables.scss' as vars;
+
+:host {
+  overflow: hidden;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header,
+.body {
+  width: 100%;
+  padding: 0.75rem 0;
+}
+
+.body {
+  height: 100%;
+  display: grid;
+  align-items: end;
+
+  @media (min-width: vars.$tablet) {
+    align-items: center;
+  }
+}
