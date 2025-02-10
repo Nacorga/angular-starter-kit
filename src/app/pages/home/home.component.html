@@ -1,1 +1,138 @@
-<p>home works!</p>
+<section class="pt-16 md:pt-24 lg:pt-32">
+  <div class="container">
+    <div class="flex flex-col items-center text-center space-y-6 lg:space-y-12">
+      <div class="text-center max-w-3xl space-y-4 lg:space-y-8">
+        <h1 class="text-4xl font-bold tracking-tighter md:text-6xl lg:text-7xl">Powerful Event Tracking made simple</h1>
+
+        <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+          Gain valuable insights into user behavior with our easy-to-integrate tracking solution for developers and
+          businesses.
+        </p>
+      </div>
+
+      <div class="flex gap-4">
+        <button mat-flat-button>Get started</button>
+        <button mat-button>Read docs</button>
+      </div>
+
+      <div class="mx-auto w-full max-w-5xl">
+        <div
+          class="relative aspect-[4/3] w-full overflow-hidden rounded-t-xl border-1 border-gray-100 bg-white shadow-2xl">
+          <div class="absolute top-0 right-0 left-0 flex h-8 items-center gap-2 bg-white px-4">
+            <div class="flex gap-2">
+              <div class="h-3 w-3 rounded-full bg-red-400"></div>
+              <div class="h-3 w-3 rounded-full bg-yellow-400"></div>
+              <div class="h-3 w-3 rounded-full bg-green-400"></div>
+            </div>
+          </div>
+
+          <img
+            ngSrc="/img/dashboard.webp"
+            alt="Analytics Dashboard Preview"
+            width="1200"
+            height="870"
+            class="mt-8 h-auto w-full"
+            priority />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative py-16 md:py-24 lg:py-32 bg-primary-950 text-white">
+  <div class="container">
+    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-20">Key features</h2>
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:grid-cols-3 lg:gap-20">
+      @for (item of features; track $index) {
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <i-lucide [name]="item.icon" class="text-primary-500"></i-lucide>
+            <h2 class="font-semibold">{{ item.title }}</h2>
+          </div>
+
+          <p class="text-pretty">{{ item.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="relative py-16 md:py-24 lg:py-32">
+  <div class="container">
+    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-20">How it works</h2>
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:grid-cols-3 lg:gap-20">
+      @for (step of steps; track $index) {
+        <div class="flex max-w-sm flex-col lg:items-center lg:text-center">
+          <div
+            class="bg-primary-600 mb-6 flex h-10 w-10 items-center justify-center rounded-full text-xl font-bold text-white md:h-12 md:w-12">
+            {{ $index + 1 }}
+          </div>
+
+          <h3 class="mb-3 font-bold md:text-lg">{{ step.title }}</h3>
+          <p class="text-pretty">{{ step.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="relative py-16 md:py-24 lg:py-32 bg-gray-900 text-white">
+  <div class="container">
+    <div class="space-y-16 md:space-y-24 lg:space-y-32">
+      <div class="flex flex-col items-center gap-8 md:gap-12 lg:gap-20 lg:flex-row">
+        <div class="w-full space-y-4 lg:w-1/2">
+          <h2 class="font-bold text-2xl md:text-3xl">Easy integration</h2>
+          <p class="md:text-lg">
+            Install Trakeator with a simple npm command and start collecting data with minimal setup.
+          </p>
+        </div>
+
+        <div class="w-full lg:w-1/2">
+          <app-code-visualizer [code]="integrationCode"></app-code-visualizer>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center gap-8 md:gap-12 lg:gap-20 lg:flex-row-reverse">
+        <div class="w-full space-y-4 lg:w-1/2">
+          <h2 class="font-bold text-2xl md:text-3xl">Send custom events</h2>
+          <p class="md:text-lg">Define and send your own events with additional data to track specific interactions.</p>
+        </div>
+
+        <div class="w-full lg:w-1/2">
+          <app-code-visualizer [code]="jsButtonCode"></app-code-visualizer>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center gap-8 md:gap-12 lg:gap-20 lg:flex-row">
+        <div class="w-full space-y-4 lg:w-1/2">
+          <h2 class="font-bold text-2xl md:text-3xl">Events with data attributes</h2>
+          <p class="md:text-lg">
+            Automatic tracking of custom events using HTML attributes. Capture user interactions without writing
+            additional JavaScript.
+          </p>
+        </div>
+
+        <div class="w-full lg:w-1/2">
+          <app-code-visualizer [code]="htmlButtonCode"></app-code-visualizer>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative bg-gray-50 py-16 md:py-24 lg:py-32">
+  <div class="container">
+    <div class="mx-auto max-w-3xl mb-12 lg:mb-16 lg:text-center">
+      <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">Pricing</h2>
+      <p class="text-gray-600 md:text-lg">Start for free and scale as you grow.</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
+      @for (item of pricing; track $index) {
+        <div class="rounded lg:text-center lg:bg-white lg:shadow lg:p-8">
+          <h3 class="font-bold text-lg lg:text-xl">${{ item.price }}/month</h3>
+        </div>
+      }
+    </div>
+  </div>
+</section>

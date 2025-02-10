@@ -1,15 +1,13 @@
 export enum LayoutBreakpoint {
-  Mobile = 'mobile',
-  Tablet = 'tablet',
-  Desktop = 'desktop',
-  DesktopLg = 'desktop-lg',
-  DesktopXl = 'desktop-xl',
+  Sm = 'sm',
+  Md = 'md',
+  Lg = 'lg',
+  Xl = 'xl',
 }
 
 export const LAYOUT_BREAKPOINT_MAP = new Map<LayoutBreakpoint, number>([
-  [LayoutBreakpoint.Mobile, 576],
-  [LayoutBreakpoint.Tablet, 768],
-  [LayoutBreakpoint.Desktop, 992],
-  [LayoutBreakpoint.DesktopLg, 1200],
-  [LayoutBreakpoint.DesktopXl, 1400],
+  [LayoutBreakpoint.Sm, 576],
+  [LayoutBreakpoint.Md, 768],
+  [LayoutBreakpoint.Lg, 992],
+  [LayoutBreakpoint.Xl, 1200],
 ]);

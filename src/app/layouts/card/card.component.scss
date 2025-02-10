@@ -1,5 +1,3 @@
-@use 'src/theme/variables.scss' as vars;
-
 :host {
   overflow: hidden;
   height: 100dvh;
@@ -21,7 +19,7 @@ header,
   display: grid;
   align-items: end;
 
-  @media (min-width: vars.$tablet) {
+  @media (min-width: vars(--breakpoint-tablet)) {
     align-items: center;
   }
 }

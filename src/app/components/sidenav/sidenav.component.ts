@@ -29,7 +29,7 @@ export class SidenavComponent extends BaseComponent {
 
   readonly navigation = NAVIGATION;
 
-  isSmallScreen = computed(() => [LayoutBreakpoint.Mobile, LayoutBreakpoint.Tablet].includes(this.state.layout()));
+  isSmallScreen = computed(() => [LayoutBreakpoint.Sm, LayoutBreakpoint.Md].includes(this.state.layout()));
 
   navToPath(path: string[]) {
     this.navigate(true, path);

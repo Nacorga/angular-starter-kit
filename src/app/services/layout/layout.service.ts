@@ -8,37 +8,29 @@ import { StateService } from '../state/state.service';
 })
 export class LayoutService {
   private readonly layoutToBreakpoint = new Map<LayoutBreakpoint, string>([
-    [LayoutBreakpoint.Mobile, `(max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Mobile)}px)`],
+    [LayoutBreakpoint.Sm, `(max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Sm)}px)`],
     [
-      LayoutBreakpoint.Tablet,
-      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Mobile) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Tablet)}px)`,
+      LayoutBreakpoint.Md,
+      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Sm) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Md)}px)`,
     ],
     [
-      LayoutBreakpoint.Desktop,
-      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Tablet) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Desktop)}px)`,
+      LayoutBreakpoint.Lg,
+      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Md) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Lg)}px)`,
     ],
-    [
-      LayoutBreakpoint.DesktopLg,
-      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Desktop) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.DesktopLg)}px)`,
-    ],
-    [LayoutBreakpoint.DesktopXl, `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.DesktopLg) + 1}px)`],
+    [LayoutBreakpoint.Xl, `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Lg) + 1}px)`],
   ]);
 
   private readonly breakpointToLayout = new Map<string, LayoutBreakpoint>([
-    [`(max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Mobile)}px)`, LayoutBreakpoint.Mobile],
+    [`(max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Sm)}px)`, LayoutBreakpoint.Sm],
     [
-      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Mobile) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Tablet)}px)`,
-      LayoutBreakpoint.Tablet,
+      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Sm) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Md)}px)`,
+      LayoutBreakpoint.Md,
     ],
     [
-      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Tablet) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Desktop)}px)`,
-      LayoutBreakpoint.Desktop,
+      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Md) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Lg)}px)`,
+      LayoutBreakpoint.Lg,
     ],
-    [
-      `(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Desktop) + 1}px) and (max-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.DesktopLg)}px)`,
-      LayoutBreakpoint.DesktopLg,
-    ],
-    [`(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.DesktopLg) + 1}px)`, LayoutBreakpoint.DesktopXl],
+    [`(min-width: ${LAYOUT_BREAKPOINT_MAP.get(LayoutBreakpoint.Lg) + 1}px)`, LayoutBreakpoint.Xl],
   ]);
 
   constructor(
@@ -49,11 +41,11 @@ export class LayoutService {
   init() {
     this.breakpointObserver
       .observe([
-        this.layoutToBreakpoint.get(LayoutBreakpoint.Mobile),
-        this.layoutToBreakpoint.get(LayoutBreakpoint.Tablet),
-        this.layoutToBreakpoint.get(LayoutBreakpoint.Desktop),
-        this.layoutToBreakpoint.get(LayoutBreakpoint.DesktopLg),
-        this.layoutToBreakpoint.get(LayoutBreakpoint.DesktopXl),
+        this.layoutToBreakpoint.get(LayoutBreakpoint.Sm),
+        this.layoutToBreakpoint.get(LayoutBreakpoint.Md),
+        this.layoutToBreakpoint.get(LayoutBreakpoint.Lg),
+        this.layoutToBreakpoint.get(LayoutBreakpoint.Lg),
+        this.layoutToBreakpoint.get(LayoutBreakpoint.Xl),
       ])
       .subscribe((result) => {
         for (const query of Object.keys(result.breakpoints)) {
