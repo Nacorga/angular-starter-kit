@@ -1,5 +1,5 @@
 {
-  "name": "angular-starter-kit",
+  "name": "trackeator",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "format": "prettier --config ./.prettierrc --write \"src/{app,styles,environments}/**/*{.ts,.html,.scss}\"",
-    "serve:ssr:angular-starter-kit": "node dist/angular-starter-kit/server/server.mjs",
+    "serve:ssr:trackeator": "node dist/trackeator/server/server.mjs",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "prepare": "husky"
@@ -29,10 +29,13 @@
     "@angular/ssr": "^19.0.0",
     "@ngx-translate/core": "^16.0.3",
     "@ngx-translate/http-loader": "^16.0.0",
+    "@tailwindcss/postcss": "^4.0.5",
     "bootstrap": "^5.3.3",
     "express": "^4.18.2",
     "google-one-tap": "^1.0.6",
+    "postcss": "^8.5.1",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.0.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
