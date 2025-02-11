@@ -39,9 +39,15 @@
   </div>
 </section>
 
-<section class="relative py-16 md:py-24 lg:py-32 bg-primary-950 text-white">
+<section class="relative py-16 md:py-24 lg:py-32">
   <div class="container">
-    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-20">Key features</h2>
+    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-16">
+      <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">Track everything that matters</h2>
+      <p class="text-gray-600 md:text-lg">
+        Everything you need to understand your users and improve your website's performance
+      </p>
+    </div>
+
     <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:grid-cols-3 lg:gap-20">
       @for (item of features; track $index) {
         <div class="space-y-4">
@@ -57,9 +63,9 @@
   </div>
 </section>
 
-<section class="relative py-16 md:py-24 lg:py-32">
+<section class="relative bg-gray-900 text-white py-16 md:py-24 lg:py-32">
   <div class="container">
-    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-20">How it works</h2>
+    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-16">How it works</h2>
     <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:grid-cols-3 lg:gap-20">
       @for (step of steps; track $index) {
         <div class="flex max-w-sm flex-col lg:items-center lg:text-center">
@@ -76,7 +82,7 @@
   </div>
 </section>
 
-<section class="relative py-16 md:py-24 lg:py-32 bg-gray-900 text-white">
+<section class="relative py-16 md:py-24 lg:py-32">
   <div class="container">
     <div class="space-y-16 md:space-y-24 lg:space-y-32">
       <div class="flex flex-col items-center gap-8 md:gap-12 lg:gap-20 lg:flex-row">
@@ -122,18 +128,45 @@
 
 <section class="relative py-16 md:py-24 lg:py-32">
   <div class="container">
-    <div class="mx-auto max-w-3xl mb-12 lg:mb-16 lg:text-center">
+    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-16">
+      <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">The smarter way to track user behavior</h2>
+      <p class="text-gray-600 md:text-lg">
+        Designed for developers who want precision, flexibility, and privacy compliance without bloated scripts or
+        intrusive tracking
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:grid-cols-3 lg:gap-20">
+      @for (item of highlights; track $index) {
+        <div class="space-y-4">
+          <div class="mb-6 flex items-center justify-between">
+            <div [class]="'rounded bg-gradient-to-br p-2 ' + item.gradient">
+              <i-lucide [name]="item.icon" class="h-6 w-6 text-white"></i-lucide>
+            </div>
+          </div>
+
+          <h2 class="font-semibold">{{ item.title }}</h2>
+          <p class="text-pretty text-gray-600">{{ item.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="relative bg-gray-50 py-16 md:py-24 lg:py-32">
+  <div class="container">
+    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-16">
       <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">Pricing</h2>
-      <p class="text-gray-600 md:text-lg">Start for free and scale as you grow.</p>
+      <p class="text-gray-600 md:text-lg">Start for free and scale as you grow</p>
     </div>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
       @for (item of pricing; track item.key) {
-        <div class="rounded p-6 border-1 border-gray-900 bg-white lg:text-center lg:p-8">
+        <div class="rounded p-6 border-1 border-gray-300 bg-white lg:text-center lg:p-8">
           <div class="h-full flex flex-col space-y-8">
             <div class="space-y-4">
               <p>{{ item.label }}</p>
-              <h3 class="font-bold text-lg lg:text-xl">
+              <h3 class="font-bold text-xl lg:text-2xl">
                 @if (item.key === 'enterprise') {
                   custom
                 } @else {
@@ -179,6 +212,27 @@
           </div>
         </div>
       }
+    </div>
+  </div>
+</section>
+
+<section class="relative py-16 md:py-24 lg:py-32">
+  <div class="container">
+    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-16">
+      Frequently Asked Questions (FAQ)
+    </h2>
+  </div>
+</section>
+
+<section class="relative bg-primary-700 text-white py-16 md:py-24 lg:py-32">
+  <div class="container">
+    <div class="mx-auto max-w-3xl mb-12 lg:mb-16 lg:text-center">
+      <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">Start tracking today</h2>
+      <p class="md:text-lg">No credit card required. Set up in minutes.</p>
+    </div>
+
+    <div class="flex justify-center">
+      <button mat-flat-button>Sign up for free</button>
     </div>
   </div>
 </section>

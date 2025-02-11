@@ -157,4 +157,5 @@ $theme: mat.define-theme(
 
 :root {
   @include mat.all-component-themes($theme);
+  @include mat.color-variants-backwards-compatibility($theme);
 }
