@@ -83,7 +83,52 @@ import { sendCustomEvent } from '@trackeator/sdk';
 </button>
 `;
 
-const pricing = [{ price: 0 }, { price: 20 }, { price: 90 }];
+const pricing = [
+  {
+    key: 'free',
+    label: 'free',
+    price: 0,
+    include: {
+      customEvents: 10,
+      dataRetention: { type: 'days', value: 30 },
+      heatmapTracking: false,
+      utmCampaignTracking: false,
+    },
+  },
+  {
+    key: 'hobby',
+    label: 'hobby',
+    price: 20,
+    include: {
+      customEvents: 50,
+      dataRetention: { type: 'days', value: 90 },
+      heatmapTracking: true,
+      utmCampaignTracking: true,
+    },
+  },
+  {
+    key: 'startup',
+    label: 'startup',
+    price: 90,
+    include: {
+      customEvents: 200,
+      dataRetention: { type: 'year', value: 1 },
+      heatmapTracking: true,
+      utmCampaignTracking: true,
+    },
+  },
+  {
+    key: 'enterprise',
+    label: 'enterprise',
+    price: 90,
+    include: {
+      customEvents: 'flexible',
+      dataRetention: { type: 'flexible', value: 'flexible' },
+      heatmapTracking: true,
+      utmCampaignTracking: true,
+    },
+  },
+];
 
 @Component({
   selector: 'app-home-page',
