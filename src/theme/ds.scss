@@ -11,7 +11,7 @@
     &.h-lg {
       height: 2.75rem;
 
-      @media (min-width: var(--breakpoint-desktop)) {
+      @media (min-width: var(--breakpoint-lg)) {
         height: 3rem;
       }
     }

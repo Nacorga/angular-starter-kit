@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NavigationExtras } from '@angular/router';
+import { DomService } from '@app/services/dom/dom.service';
 import { FormsService } from '@app/services/forms/forms.service';
 import { LanguageService } from '@app/services/language/language.service';
 import { RouterService } from '@app/services/router/router.service';
@@ -13,6 +14,7 @@ export abstract class BaseComponent {
   readonly langSrv: LanguageService = inject(LanguageService);
   readonly utilsSrv: UtilsService = inject(UtilsService);
   readonly routerSrv: RouterService = inject(RouterService);
+  readonly domSrv: DomService = inject(DomService);
 
   get isPlatformBrowser(): boolean {
     return this.utilsSrv.isPlatformBrowser;
@@ -24,6 +26,10 @@ export abstract class BaseComponent {
 
   navigate(useLang?: boolean, url: string[] = [], extras: NavigationExtras = {}) {
     return this.routerSrv.navigate(useLang, url, extras);
+  }
+
+  scrollTo(el: HTMLElement) {
+    this.domSrv.scrollTo(el);
   }
 
   getFormCtrlErrorMsg(ctrl: FormControl): string {

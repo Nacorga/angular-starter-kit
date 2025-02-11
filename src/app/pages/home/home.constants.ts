@@ -187,6 +187,29 @@ const pricing = [
   },
 ];
 
+const faqs = [
+  {
+    question: 'How do I integrate the SDK?',
+    answer:
+      'Our SDK can be easily integrated using npm or yarn. Simply install the package and initialize it with your API key. Check our documentation for detailed instructions.',
+  },
+  {
+    question: 'What data is tracked?',
+    answer:
+      'By default, we track page views, scroll depth, user inactivity and clicks. You can also set up custom event tracking for specific user interactions or business events.',
+  },
+  {
+    question: 'Is the data GDPR compliant?',
+    answer:
+      'Yes, our service is fully GDPR compliant. We provide tools to manage user consent and data deletion requests. Please refer to our privacy policy for more details.',
+  },
+  {
+    question: 'Can I export the collected data?',
+    answer:
+      'You can export your data in various formats, including CSV and JSON. We also provide API access for seamless integration with your existing tools.',
+  },
+];
+
 export const homePage = {
   features,
   steps,
@@ -195,4 +218,5 @@ export const homePage = {
   jsButtonCode,
   highlights,
   pricing,
+  faqs,
 };

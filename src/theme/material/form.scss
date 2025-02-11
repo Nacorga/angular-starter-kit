@@ -1,0 +1,18 @@
+mat-form-field.mat-mdc-form-field {
+  &.flat {
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+
+  .mat-mdc-text-field-wrapper {
+    background-color: #fff;
+    border-radius: 0.24rem;
+
+    .mat-mdc-notch-piece.mdc-notched-outline__notch {
+      margin-left: -2px;
+      border-left: none !important;
+      border-right: none;
+    }
+  }
+}

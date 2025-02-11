@@ -10,10 +10,12 @@
         </p>
       </div>
 
-      <div class="flex gap-4">
+      <!-- <div class="flex gap-4">
         <button mat-flat-button>Get started</button>
         <button mat-button>Read docs</button>
-      </div>
+      </div> -->
+
+      <button mat-flat-button (click)="scrollTo(join)">Join the waitlist</button>
 
       <div class="mx-auto w-full max-w-5xl">
         <div
@@ -41,7 +43,7 @@
 
 <section class="relative py-16 md:py-24 lg:py-32">
   <div class="container">
-    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-16">
+    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-20">
       <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">Track everything that matters</h2>
       <p class="text-gray-600 md:text-lg">
         Everything you need to understand your users and improve your website's performance
@@ -65,17 +67,17 @@
 
 <section class="relative bg-gray-900 text-white py-16 md:py-24 lg:py-32">
   <div class="container">
-    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-16">How it works</h2>
+    <h2 class="font-bold text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-20">How it works</h2>
     <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:grid-cols-3 lg:gap-20">
       @for (step of steps; track $index) {
-        <div class="flex max-w-sm flex-col lg:items-center lg:text-center">
+        <div class="flex max-w-sm flex-col items-center text-center">
           <div
             class="bg-primary-600 mb-6 flex h-10 w-10 items-center justify-center rounded-full text-xl font-bold text-white md:h-12 md:w-12">
             {{ $index + 1 }}
           </div>
 
           <h3 class="mb-3 font-bold md:text-lg">{{ step.title }}</h3>
-          <p class="text-pretty">{{ step.description }}</p>
+          <p class="text-balance">{{ step.description }}</p>
         </div>
       }
     </div>
@@ -128,7 +130,7 @@
 
 <section class="relative py-16 md:py-24 lg:py-32">
   <div class="container">
-    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-16">
+    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-20">
       <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">The smarter way to track user behavior</h2>
       <p class="text-gray-600 md:text-lg">
         Designed for developers who want precision, flexibility, and privacy compliance without bloated scripts or
@@ -141,7 +143,7 @@
         <div class="space-y-4">
           <div class="mb-6 flex items-center justify-between">
             <div [class]="'rounded bg-gradient-to-br p-2 ' + item.gradient">
-              <i-lucide [name]="item.icon" class="h-6 w-6 text-white"></i-lucide>
+              <i-lucide [name]="item.icon" class="h-5 w-5 lg:h-6 lg:w-6 text-white"></i-lucide>
             </div>
           </div>
 
@@ -153,9 +155,29 @@
   </div>
 </section>
 
+<section #join class="relative bg-primary-950 text-white py-16 md:py-24 lg:py-32">
+  <div class="container">
+    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-20">
+      <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">Join the waitlist</h2>
+      <p class="md:text-lg">
+        Be the first to know when we launch. Get early access to our powerful event tracking solution.
+      </p>
+    </div>
+
+    <form class="w-full flex flex-col md:flex-row items-end md:items-center justify-center gap-6 md:gap-4">
+      <mat-form-field class="flat w-full sm:max-w-sm">
+        <input matInput type="email" [placeholder]="'enter_your_email' | translate" [formControl]="emailFC" />
+      </mat-form-field>
+
+      <button mat-flat-button>Join now</button>
+    </form>
+  </div>
+</section>
+
+<!-- Pricing
 <section class="relative bg-gray-50 py-16 md:py-24 lg:py-32">
   <div class="container">
-    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-16">
+    <div class="mx-auto max-w-3xl lg:text-center mb-12 lg:mb-20">
       <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">Pricing</h2>
       <p class="text-gray-600 md:text-lg">Start for free and scale as you grow</p>
     </div>
@@ -214,19 +236,37 @@
       }
     </div>
   </div>
-</section>
+</section> -->
 
+<!-- FAQs
 <section class="relative py-16 md:py-24 lg:py-32">
   <div class="container">
-    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-16">
+    <h2 class="font-bold lg:text-center text-2xl md:text-3xl lg:text-4xl mb-12 lg:mb-20">
       Frequently Asked Questions (FAQ)
     </h2>
-  </div>
-</section>
 
-<section class="relative bg-primary-700 text-white py-16 md:py-24 lg:py-32">
+    <div class="mx-auto max-w-3xl">
+      @for (faq of faqs; track $index) {
+        <div class="border-b border-gray-300 {{$index === 0 ? 'pb-6' : 'py-6'}}">
+          <app-accordion>
+            <ng-container header>
+              <p class="font-bold lg:text-lg">{{ faq.question }}</p>
+            </ng-container>
+      
+            <ng-container body>
+              <p class="text-gray-600">{{ faq.answer }}</p>
+            </ng-container>
+          </app-accordion>
+        </div>
+      }
+    </div>
+  </div>
+</section> -->
+
+<!-- CTA
+<section class="relative bg-primary-950 text-white py-16 md:py-24 lg:py-32">
   <div class="container">
-    <div class="mx-auto max-w-3xl mb-12 lg:mb-16 lg:text-center">
+    <div class="mx-auto max-w-3xl mb-8 lg:mb-12 text-center">
       <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4">Start tracking today</h2>
       <p class="md:text-lg">No credit card required. Set up in minutes.</p>
     </div>
@@ -235,4 +275,6 @@
       <button mat-flat-button>Sign up for free</button>
     </div>
   </div>
-</section>
+</section> -->
+
+<app-footer></app-footer>

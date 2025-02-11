@@ -1,0 +1,16 @@
+<div class="accordion" [ngClass]="{ expanded: !isCollapsed }">
+  <div class="accordion__header" (click)="toggle()">
+    <div class="flex items-center justify-between">
+      <ng-content select="[header]"></ng-content>
+      <mat-icon class="arrow-icon">expand_more</mat-icon>
+    </div>
+  </div>
+
+  <div
+    class="accordion__body"
+    [ngClass]="{ display: animationDone }"
+    [@accordionAnimation]="isCollapsed"
+    (@accordionAnimation.done)="onAnimationEvent($event)">
+    <ng-content select="[body]"></ng-content>
+  </div>
+</div>

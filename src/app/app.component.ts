@@ -3,7 +3,6 @@ import { Event, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BaseComponent } from './components/base.component';
 import { LayoutService } from './services/layout/layout.service';
-import { DomService } from './services/dom/dom.service';
 import { GtagService } from './services/gtag/gtag.service';
 import { filter } from 'rxjs';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -20,7 +19,6 @@ export class AppComponent extends BaseComponent implements OnInit, AfterViewInit
   constructor(
     private readonly router: Router,
     private readonly layoutSrv: LayoutService,
-    private readonly domSrv: DomService,
     private readonly gtagSrv: GtagService,
   ) {
     super();

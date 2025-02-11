@@ -7,7 +7,7 @@
           <form [formGroup]="registerForm">
             <mat-form-field class="w-100 mb-3">
               <mat-label>{{ 'email' | translate }}</mat-label>
-              <input type="text" matInput formControlName="email" />
+              <input type="email" matInput formControlName="email" />
               @if (registerForm?.controls?.email?.errors) {
                 <mat-error>{{ getFormCtrlErrorMsg(registerForm.controls.email) }}</mat-error>
               }
